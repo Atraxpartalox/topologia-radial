@@ -19,3 +19,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+📜 Licencia
+Este proyecto está licenciado bajo la Licencia MIT.
+
+Autor Original: Eduardo Luis Moreno Serna
+
+Año: 2026
+"""
+
+requirements_content = """numpy>=1.21.0
+matplotlib>=3.4.0
+opencv-python>=4.5.0
+"""
+
+piedra_sol_code = """import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def extraer_geometria_piedra_sol():
+size = 800
+center = (size // 2, size // 2)
+radios = [80, 150, 220, 290, 360]
