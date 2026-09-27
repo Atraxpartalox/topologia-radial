@@ -1,26 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
+# 🌀 Framework de Topología Temporal y Visualización Radial
 
-def generar_matriz_polar(categorias, radios):
-    fig, ax = plt.subplots(figsize=(8, 8), subplot_kw={'projection': 'polar'})
-    fig.patch.set_facecolor('#0B0F19')
-    ax.set_facecolor('#0B0F19')
+Un motor paramétrico escrito en Python diseñado para transformar datos cronológicos, secuencias de proyectos y análisis de simetrías geométricas en estructuras radiales polares (\(r, \theta\)).
 
-    num_cat = len(categorias)
-    angulos = np.linspace(0, 2 * np.pi, num_cat, endpoint=False)
-
-    for r in radios:
-        ax.plot(angulos, [r]*num_cat, linestyle='--', color='#38BDF8', alpha=0.7)
-
-    ax.set_xticks(angulos)
-    ax.set_xticklabels(categorias, color='#F8FAFC', fontsize=9)
-    ax.grid(True, color='#1E293B')
-    
-    plt.title("Visualizador Radial Paramétrico", color='#F8FAFC', pad=20)
-    plt.savefig("matriz_polar.png", dpi=300, facecolor=fig.get_facecolor())
-    plt.show()
-
-# Ejecución
-categorias = ["Fase A", "Fase B", "Fase C", "Fase D"]
-radios = [1.0, 2.0, 3.0]
-generar_matriz_polar(categorias, radios)nstructivos en planos arquitectónicos y estructuras arqueológicas.
+Este marco de trabajo unifica la visualización cíclica de datos con el análisis de ejes constructivos en planos arquitectónicos y estructuras arqueológicas. Características PrincipalesMapeo Angular y Radial ($r, \theta$): Transforma eventos tabulares y periodos temporales en fases angulares y niveles concéntricos.Interferencia de Fases: Permite detectar patrones cíclicos, alineaciones y nodos de alta frecuencia que los gráficos lineales convencionales ocultan.Descomposición Arqueo-Matemática: Algoritmos aplicados a la extracción de simetrías y ejes en artefactos y planos técnicos (ej. Piedra del Sol Mexica, plantas de muros).Exportación Paramétrica: Generación de gráficos vectoriales en alta resolución listos para documentación técnica o integración con CAD.🚀 InstalaciónAsegúrate de tener instalado Python 3.8+ y las siguientes librerías:
