@@ -1,40 +1,26 @@
-# topologia-radial
-Motor paramétrico en Python para visualización radial de datos ($r, \theta$), análisis de frecuencias temporal-cíclicas y extracción de ejes estructurales en planos.
-# 🌀 Framework de Topología Temporal y Visualización Radial
+import matplotlib.pyplot as plt
+import numpy as np
 
-Un motor paramétrico escrito en Python diseñado para transformar datos cronológicos, secuencias de proyectos y análisis de simetrías geométricas en estructuras radiales polares (\(r, \theta\)).
+def generar_matriz_polar(categorias, radios):
+    fig, ax = plt.subplots(figsize=(8, 8), subplot_kw={'projection': 'polar'})
+    fig.patch.set_facecolor('#0B0F19')
+    ax.set_facecolor('#0B0F19')
 
-Este marco de trabajo unifica la visualización cíclica de datos con el análisis de ejes constructivos en planos arquitectónicos y estructuras arqueológicas.
-# Crear y comprimir todos los archivos del proyecto para descarga
-import zipfile
-import os
+    num_cat = len(categorias)
+    angulos = np.linspace(0, 2 * np.pi, num_cat, endpoint=False)
 
-# Contenido de los archivos
-license_content = """MIT License
+    for r in radios:
+        ax.plot(angulos, [r]*num_cat, linestyle='--', color='#38BDF8', alpha=0.7)
 
-Copyright (c) 2026 Eduardo Luis Moreno Serna
+    ax.set_xticks(angulos)
+    ax.set_xticklabels(categorias, color='#F8FAFC', fontsize=9)
+    ax.grid(True, color='#1E293B')
+    
+    plt.title("Visualizador Radial Paramétrico", color='#F8FAFC', pad=20)
+    plt.savefig("matriz_polar.png", dpi=300, facecolor=fig.get_facecolor())
+    plt.show()
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
-
-readme_content = """# 🌀 Framework de Topología Temporal y Visualización Radial
-
-Un motor paramétrico escrito en Python diseñado para transformar datos cronológicos, secuencias de proyectos y análisis de simetrías geométricas en estructuras radiales polares (\(r, \\theta\)).
-
-Este marco de trabajo unifies la visualización cíclica de datos con el análisis de ejes constructivos en planos arquitectónicos y estructuras arqueológicas.
+# Ejecución
+categorias = ["Fase A", "Fase B", "Fase C", "Fase D"]
+radios = [1.0, 2.0, 3.0]
+generar_matriz_polar(categorias, radios)nstructivos en planos arquitectónicos y estructuras arqueológicas.
